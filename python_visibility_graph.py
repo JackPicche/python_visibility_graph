@@ -141,7 +141,7 @@ class VisibilityGraph:
         return graph
 
 
-    def plot_obstacles(self,end):
+    def plot_obstacles(self,start, end):
         plt.figure(figsize=(8, 8))
 
         for obstacle in self.coord_obstacle:
@@ -161,9 +161,14 @@ class VisibilityGraph:
         for vertex1, vertex2 in self.graph:
             plt.plot([vertex1[0], vertex2[0]], [vertex1[1], vertex2[1]], 'b')
 
+        plt.plot(start[0], start[1], 'ro', label='Arbitrary Point')
+        plt.xlabel('X')
+        plt.ylabel('Y')
+
         plt.plot(end[0], end[1], 'ro', label='Arbitrary Point')
         plt.xlabel('X')
         plt.ylabel('Y')
+
 
         #Show
         plt.gca().set_aspect('equal', adjustable='box')
@@ -192,7 +197,7 @@ if __name__ == '__main__':
     end = (10, 10)
     shortest_paths_start_end = vis_graph.do_dijkstra(start, end)
     print(shortest_paths_start_end)
-    vis_graph.plot_obstacles(end)
+    vis_graph.plot_obstacles(start, end)
 
 
 
