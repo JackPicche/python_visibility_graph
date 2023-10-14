@@ -157,6 +157,7 @@ class VisibilityGraph:
             y.append(obstacle[0][1])
 
             plt.plot(x, y, 'k-')
+            plt.fill(x, y, 'c')
 
         for vertex1, vertex2 in self.graph:
             plt.plot([vertex1[0], vertex2[0]], [vertex1[1], vertex2[1]], 'b')
@@ -195,6 +196,7 @@ if __name__ == '__main__':
     vis_graph = VisibilityGraph()
     start = (0.0,0.0)
     end = (10, 10)
+    vis_graph.graph = vis_graph.visibility_graph()
     shortest_paths_start_end = vis_graph.do_dijkstra(start, end)
     print(shortest_paths_start_end)
     vis_graph.plot_obstacles(start, end)
