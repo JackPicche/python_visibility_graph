@@ -147,15 +147,12 @@ class VisibilityGraph:
         for obstacle in self.coord_obstacle:
             x = []
             y = []
-
+            
             for point in obstacle:
                 x.append(point[0])
 
                 y.append(point[1])
-
-            x.append(obstacle[0][0])
-            y.append(obstacle[0][1])
-
+            
             plt.plot(x, y, 'k-')
             plt.fill(x, y, 'c')
 
